@@ -1,0 +1,24 @@
+{
+    "app": {
+        "gmxMap": {
+            "mapID": "7YP6Y",
+			"apiKey": "E5FB6CCB5D23B5E119D2F1B26BCC57BD"
+        },
+        "zoomControl": "leaflet",
+        "hideControl": false,
+        "centerControl": {
+            "color": "#121212"
+        },
+        "layersTreeWidget": {
+			"maxDepth": 2,
+			"popoversContent": "legend",
+            "popoversOptions": {
+                "trigger": "click"
+            }
+		},
+	"calendarWidget": true
+    },
+	"user": {
+	"modisGroupId": "bEeiDOlhTbWEQBBL"
+	}
+}
