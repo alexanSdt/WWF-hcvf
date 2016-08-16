@@ -1,0 +1,6 @@
+[submodule "external/winnie-build"]
+	path = external/winnie-build
+	url = git@github.com:Kosmosnimki/winnie-build.git
+[submodule "external/APIBuild"]
+	path = external/APIBuild
+	url = git@github.com:ScanEx/APIBuild.git
