@@ -11,9 +11,9 @@
         },
         "layersTreeWidget": {
 			"maxDepth": 2,
-			"popoversContent": "legend",
+			"popoversContent": "desc_long",
             "popoversOptions": {
-                "trigger": "click"
+                "trigger": "none"
             }
 		},
 	"calendarWidget": true
