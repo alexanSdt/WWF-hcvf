@@ -1,0 +1,40 @@
+﻿
+
+.SearchInputControl { background-color:white }
+.searchResultCanvas ul { margin:0 }
+.searchResultCanvas ul { padding:0 }	
+.searchResultCanvas td { vertical-align:top }
+.searchResultCanvas span.searchElem { cursor: pointer; font-weight:bold}
+.searchResultCanvas span.searchElemParent {
+	cursor: pointer;
+	margin-left: 4px;
+}
+.searchResultContainer span.page {
+	font-weight:bold;
+}
+.searchResultContainer span.buttonLink {
+	cursor: pointer;
+}
+.searchResultContainer span.buttonLink:hover,
+.searchResultCanvas span.searchElem:hover,
+.searchResultCanvas span.searchElemParent:hover {
+	text-decoration: underline
+}
+
+.searchResultBalloon img{padding-right:0px; padding-left:10px}
+.searchResultBalloon table td{vertical-align:top}
+.SearchResultListNotFound{ text-align:center }
+.SearchResultListNotFound:before{
+    content: attr(title);
+}
+
+.SearchInputControl {
+background-color: white;
+box-shadow: 0 1px 5px rgba(0, 0, 0, 0.65);
+border-radius: 1px
+}
+
+input.searchCenter {
+outline:none;
+}
+

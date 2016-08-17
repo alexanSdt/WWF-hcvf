@@ -4,3 +4,6 @@
 [submodule "external/APIBuild"]
 	path = external/APIBuild
 	url = git@github.com:ScanEx/APIBuild.git
+[submodule "external/GMXCommonComponents"]
+	path = external/GMXCommonComponents
+	url = git@github.com:ScanEx/GMXCommonComponents.git
