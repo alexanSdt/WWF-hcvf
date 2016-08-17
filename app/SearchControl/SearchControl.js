@@ -107,16 +107,16 @@ window.nsGmx.SearchControl = function (options) {
         if (layer && !mapper._layersTree.find('06CCCC47405646C1BC5C45090D38EA2B').get('visible')) {
             layer.setFilter(function (arg) {
                 var found = arg.properties[1] == first.fsc_id && arg.properties[4] == first.holder1
-                if (found)
-                    border(arg.properties[arg.properties.length - 1]);
+                //if (found)
+                //    border(arg.properties[arg.properties.length - 1]);
                 return found;
             })
             cm.get('map').addLayer(layer);
         }
         else {
             layer.setFilter(function (arg) {
-                if (arg.properties[1] == first.fsc_id && arg.properties[4] == first.holder1)
-                    border(arg.properties[arg.properties.length - 1]);
+                //if (arg.properties[1] == first.fsc_id && arg.properties[4] == first.holder1)
+                //    border(arg.properties[arg.properties.length - 1]);
                 return true;
             })
         }
