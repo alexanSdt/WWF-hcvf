@@ -32,6 +32,13 @@ $(document).ready(function (je) {
             return searchBarWidget;
         });
 
+        cm.define('cosmosagroTimeline', ['map'], function (cm) {
+            var map = cm.get('map');
+            var t = new L.Control.gmxAgroTimeline();
+            map.addControl(t);
+            return t.manager;
+        });
+
         cm.create().then(function () {
             console.log('ready');
             onApplicationReady(cm)
