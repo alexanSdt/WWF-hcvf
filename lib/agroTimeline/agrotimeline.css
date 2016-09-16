@@ -107,7 +107,7 @@ div.timeline-event-selected {
 
 div.timeline-event-cluster {
   /* TODO: use another color or pattern? */
-  background: #97B0F8 url('Timeline/build/img/cluster_bg.png?3626508');
+  background: #97B0F8 url('Timeline/build/img/cluster_bg.png?0572498');
   color: white;
 }
 
@@ -212,29 +212,29 @@ div.timeline-navigation-move-right {
 }
 
 div.timeline-navigation-new {
-  background: url('Timeline/build/img/16/new.png?3626508') no-repeat center;
+  background: url('Timeline/build/img/16/new.png?0572498') no-repeat center;
 }
 
 div.timeline-navigation-delete {
   padding: 0px;
   padding-left: 5px;
-  background: url('Timeline/build/img/16/delete.png?3626508') no-repeat center;
+  background: url('Timeline/build/img/16/delete.png?0572498') no-repeat center;
 }
 
 div.timeline-navigation-zoom-in {
-  background: url('Timeline/build/img/16/zoomin.png?3626508') no-repeat center;
+  background: url('Timeline/build/img/16/zoomin.png?0572498') no-repeat center;
 }
 
 div.timeline-navigation-zoom-out {
-  background: url('Timeline/build/img/16/zoomout.png?3626508') no-repeat center;
+  background: url('Timeline/build/img/16/zoomout.png?0572498') no-repeat center;
 }
 
 div.timeline-navigation-move-left {
-  background: url('Timeline/build/img/16/moveleft.png?3626508') no-repeat center;
+  background: url('Timeline/build/img/16/moveleft.png?0572498') no-repeat center;
 }
 
 div.timeline-navigation-move-right {
-  background: url('Timeline/build/img/16/moveright.png?3626508') no-repeat center;
+  background: url('Timeline/build/img/16/moveright.png?0572498') no-repeat center;
 }
 .shadeTimeline {
   width: 100%;
@@ -528,7 +528,7 @@ div.timeline-axis-grid {
 }
 
 /*#ntYearUp:hover {
-        background: url('up_a.png?1?3626508') bottom center no-repeat;
+        background: url('up_a.png?1?0572498') bottom center no-repeat;
     }*/
 
 .ntYearUp_hover {
@@ -552,7 +552,7 @@ div.timeline-axis-grid {
 }
 
 /*#ntYearDown:hover {
-        background: url('down_a.png?1?3626508') top center no-repeat;
+        background: url('down_a.png?1?0572498') top center no-repeat;
     }*/
 
 .ntYearDown_hover {
@@ -564,7 +564,7 @@ div.timeline-axis-grid {
 }
 
 /*#ntPrevYear:hover {
-        background: url('prev_a.png?1?3626508') top left no-repeat;
+        background: url('prev_a.png?1?0572498') top left no-repeat;
     }*/
 
 .ntPrevYear_hover {
@@ -577,7 +577,7 @@ div.timeline-axis-grid {
 }
 
 /*#ntNextYear:hover {
-        background: url('next_a.png?1?3626508') top left no-repeat;
+        background: url('next_a.png?1?0572498') top left no-repeat;
     }*/
 
 .ntNextYear_hover {
