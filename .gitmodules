@@ -7,3 +7,6 @@
 [submodule "external/GMXCommonComponents"]
 	path = external/GMXCommonComponents
 	url = git@github.com:ScanEx/GMXCommonComponents.git
+[submodule "external/SearchJS"]
+	path = external/SearchJS
+	url = git@github.com:ScanEx/SearchJS.git
