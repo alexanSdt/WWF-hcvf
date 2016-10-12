@@ -35,8 +35,6 @@ module.exports = function(cm) {
         }
     })
 
-    return
-
     cm.define('cosmosagroTimeline', ['map'], function (cm) {
         var map = cm.get('map')
         var t = new L.Control.gmxAgroTimeline()
