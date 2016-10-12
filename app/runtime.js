@@ -1,6 +1,9 @@
 require('../lib/magnific-popup/dist/jquery.magnific-popup.js')
 require('../lib/magnific-popup/dist/magnific-popup.css')
 
+const SearchControl = require('./SearchControl')
+const HeaderContainerControl = require('./HeaderContainerControl')
+
 module.exports = function(cm) {
     cm.define('layersTreeWidgetDescriptionPopup', ['layersTreeWidget'], function (cm) {
         return cm.get('layersTreeWidget').on('infoButtonClick', (infoProperty, model) => (
@@ -13,29 +16,26 @@ module.exports = function(cm) {
         )), null
     })
 
-    return
-
-    cm.define('headerContainerControl', ['map'], function (cm) {
+    cm.define('searchBarContainer', ['map'], function (cm) {
         var map = cm.get('map')
-        var headerContainerControl = new nsGmx.HeaderContainerControl()
+        var headerContainerControl = new HeaderContainerControl()
         headerContainerControl.addTo(map)
         $(headerContainerControl._container).removeClass('leaflet-control')
         //$('.leaflet-control-zoom').css({ 'margin-top': '50px', 'margin-left': '15px' })
-        return headerContainerControl
+        return headerContainerControl.getSearchBarContainer()
     })
 
-    cm.define('searchBarWidget', ['headerContainerControl'], function (cm) {
-        var headerContainerControl = cm.get('headerContainerControl')
-        var searchBarContainer = headerContainerControl.getSearchBarContainer()
-        var searchBarWidget = {
-            searchControl: new window.nsGmx.SearchControl({
+    cm.define('searchBarWidget', ['searchBarContainer'], function (cm) {
+        return {
+            searchControl: new SearchControl({
                 map: cm.get('map'),
                 sidebarWidget: cm.get('sidebarWidget'),
-                searchBarContainer: searchBarContainer
+                searchBarContainer: cm.get('searchBarContainer')
             })
         }
-        return searchBarWidget
     })
+
+    return
 
     cm.define('cosmosagroTimeline', ['map'], function (cm) {
         var map = cm.get('map')

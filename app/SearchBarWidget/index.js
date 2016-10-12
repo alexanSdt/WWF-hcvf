@@ -1,6 +1,9 @@
-window.nsGmx = window.nsGmx || {};
+const Backbone = window.Backbone
+const $ = require('jquery')
 
-window.nsGmx.SearchBarWidget = Backbone.View.extend({
+require('./styles.css')
+
+module.exports = Backbone.View.extend({
     className: 'searchBarWidget',
 
     initialize: function (options) {

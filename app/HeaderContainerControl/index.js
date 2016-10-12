@@ -1,6 +1,8 @@
-window.nsGmx = window.nsGmx || {};
+const L = window.L
 
-window.nsGmx.HeaderContainerControl = L.Control.extend({
+require('./styles.css')
+
+module.exports = L.Control.extend({
     options: {
         className: 'headerContainerControl'
     },
