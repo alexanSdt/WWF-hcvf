@@ -22,7 +22,7 @@ module.exports = {
     },
 
     resolve: {
-        alias: { 'jquery': path.resolve('./lib/jquery.js') }
+        alias: { 'jquery': path.resolve('./app/jquery.js') }
     },
 
     plugins: [

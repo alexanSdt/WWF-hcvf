@@ -1,5 +1,5 @@
-require('../lib/magnific-popup/dist/jquery.magnific-popup.js')
-require('../lib/magnific-popup/dist/magnific-popup.css')
+require('./magnific-popup/dist/jquery.magnific-popup.js')
+require('./magnific-popup/dist/magnific-popup.css')
 
 const SearchControl = require('./SearchControl')
 const HeaderContainerControl = require('./HeaderContainerControl')
