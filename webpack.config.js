@@ -21,6 +21,10 @@ module.exports = {
         ]
     },
 
+    resolve: {
+        alias: { 'jquery': path.resolve('./lib/jquery.js') }
+    },
+
     plugins: [
         extractCSS
     ],

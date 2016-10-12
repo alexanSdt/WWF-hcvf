@@ -1,4 +1,18 @@
+require('../lib/magnific-popup/dist/jquery.magnific-popup.js')
+require('../lib/magnific-popup/dist/magnific-popup.css')
+
 module.exports = function(cm) {
+    cm.define('layersTreeWidgetDescriptionPopup', ['layersTreeWidget'], function (cm) {
+        return cm.get('layersTreeWidget').on('infoButtonClick', (infoProperty, model) => (
+            $.magnificPopup.open({
+                items: {
+                    type: 'inline',
+                    src: $('<div>').addClass('white-popup').html(infoProperty)
+                }
+            })
+        )), null
+    })
+
     return
 
     cm.define('headerContainerControl', ['map'], function (cm) {
