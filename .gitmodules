@@ -13,3 +13,6 @@
 [submodule "external/IconSidebarControl"]
 	path = external/IconSidebarControl
 	url = git@github.com:ScanEx/IconSidebarControl.git
+[submodule "external/winnie-core"]
+	path = external/winnie-core
+	url = git@github.com:Kosmosnimki/winnie-core.git
