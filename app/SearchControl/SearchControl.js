@@ -182,9 +182,7 @@ window.nsGmx.SearchControl = function (options) {
 		});
     searchControl.SetPlaceholder(nsGmx.Translations.getText('SearchControl.SearchPlaceholder'));
     var scrollView = new nsGmx.ScrollView();
-    scrollView.appendTo(sideBar.setPane(resultTabId, {
-        createTab: () => { return $('<i>').addClass('icon-search')[0] }
-    }));
+    scrollView.appendTo(sideBar.setPane(resultTabId));
     $(window).on('resize', function () {
         scrollView.repaint();
     });
