@@ -10,3 +10,6 @@
 [submodule "external/SearchJS"]
 	path = external/SearchJS
 	url = git@github.com:ScanEx/SearchJS.git
+[submodule "external/IconSidebarControl"]
+	path = external/IconSidebarControl
+	url = git@github.com:ScanEx/IconSidebarControl.git

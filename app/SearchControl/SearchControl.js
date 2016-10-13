@@ -59,12 +59,12 @@ window.nsGmx.SearchControl = function (options) {
                     stop();
                 }
                 else
-                // Try to geocode 
+                // Try to geocode
                     proceed();
             }
             else {
                 // On error stop any futher search
-                proceed(); //stop();			
+                proceed(); //stop();
             }
         })
         .on('error', function (e) {
@@ -123,19 +123,19 @@ window.nsGmx.SearchControl = function (options) {
 
     }
 
-    // Define observer on starting of query suggestions search 
+    // Define observer on starting of query suggestions search
     var autoCompleteSearchObserver = function (next, deferred, params) {
         if (params.searchString && params.searchString.search(/\S/) != -1) {
             searchLayerObject(map,
             params.searchString,
-            null, //params.dateInterval, 
+            null, //params.dateInterval,
             {pagesize: 10 },
             function () { deferred.resolve(-1) },
             function () { deferred.resolve(next) },
             function (objCollection) {
                 var arrResult = [];
                 objCollection.each(function (item) {
-                    //console.log(item.attributes.mmsi + ' ' + item.attributes.vesselName + ' ' + new Date(item.attributes.last * 1000));				
+                    //console.log(item.attributes.mmsi + ' ' + item.attributes.vesselName + ' ' + new Date(item.attributes.last * 1000));
                     arrResult.push({
                         label: (item.attributes.fsc_id ? item.attributes.fsc_id + ' ' : '') + item.attributes.holder1,
                         value: item.attributes.holder1,
@@ -155,7 +155,7 @@ window.nsGmx.SearchControl = function (options) {
             deferred.resolve(-1);
     }
 
-    // Create and place 
+    // Create and place
     window.gmxGeoCodeUseOSM = true;
     nsGmx.Translations.addText("rus", { SearchControl: {
         SearchPlaceholder: "Поиск по FSC_ID или компании-арендатору",
@@ -182,7 +182,9 @@ window.nsGmx.SearchControl = function (options) {
 		});
     searchControl.SetPlaceholder(nsGmx.Translations.getText('SearchControl.SearchPlaceholder'));
     var scrollView = new nsGmx.ScrollView();
-    scrollView.appendTo(sideBar.addTab(resultTabId, 'icon-search'));
+    scrollView.appendTo(sideBar.setPane(resultTabId, {
+        createTab: () => { return $('<i>').addClass('icon-search')[0] }
+    }));
     $(window).on('resize', function () {
         scrollView.repaint();
     });
@@ -241,7 +243,7 @@ window.nsGmx.SearchControl = function (options) {
         }
     });
 
-    // Subscribe the observer on starting of query suggestions search 
+    // Subscribe the observer on starting of query suggestions search
     searchControl.onAutoCompleteDataSearchStarting({
         observer: { add: true, observer: autoCompleteSearchObserver },
         selectItem: function (event, oAutoCompleteItem) {
@@ -271,12 +273,12 @@ window.nsGmx.SearchControl = function (options) {
                 // Show result panel with status
                 $(searchControl).trigger('onBeforeSearch');
 
-                searchLayerObject(map, params.searchString, null, //params.dateInterval, 
+                searchLayerObject(map, params.searchString, null, //params.dateInterval,
                 {},
                 function () { deferred.resolve(-1) },
                 function () { deferred.resolve(next) },
                 function (objCollection) {
-                    //console.log(objCollection);	
+                    //console.log(objCollection);
                     params.lstResult.eraseMarkers();
 
                     // Show first
