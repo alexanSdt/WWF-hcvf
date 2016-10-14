@@ -14,3 +14,9 @@
   max-width: 500px;
   margin: 20px auto;
 }
+
+.shareControl {
+    position: absolute;
+    left: 464px;
+    top: -2px;
+}

@@ -1,0 +1,31 @@
+
+.mapControlElement
+    display flex
+    align-items center
+    justify-content center
+    min-width 30px
+    min-height 30px
+    background-color #fff
+    box-shadow 0 1px 5px rgba(0, 0, 0, 0.35)
+    border-radius 4px
+
+    &:hover
+        background-color #e0e0e0
+
+.shareControl
+    .shareControl-button
+        cursor pointer
+        padding 0px 4px
+
+    .shareControl-permalink
+        position absolute
+        left 50%
+        transform translateX(-50%)
+        display none
+        padding 4px 8px
+
+        &.shareControl-permalink_visible
+            display flex
+
+        .shareControl-permalinkInput
+            width 200px

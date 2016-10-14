@@ -1,9 +1,11 @@
 require('./magnific-popup/dist/jquery.magnific-popup.js')
 require('./magnific-popup/dist/magnific-popup.css')
 
-const $ = require('jquery')
-const SearchControl = require('./SearchControl')
 const HeaderContainerControl = require('./HeaderContainerControl')
+const SearchControl = require('./SearchControl')
+const ShareControl = require('./ShareControl')
+const Uri = require('jsuri')
+const $ = require('jquery')
 
 // безопасно разруливаем получение свойств глубоких объектов
 // вместо obj.foo.bar.baz пишем ensureProperty(obj, 'foo.bar.baz')
@@ -19,6 +21,32 @@ function ensureProperty(o, p) {
 }
 
 module.exports = function(cm) {
+    cm.define('uri', [], function (cm) {
+        return new Uri(window.location.href)
+    })
+
+    cm.define('permalinkData', ['mapsResourceServer', 'permalinkManager', 'uri'], function(cm, cb) {
+        var mapsResourceServer = cm.get('mapsResourceServer')
+        var pm = cm.get('permalinkManager')
+        var uri = cm.get('uri')
+
+        var permalinkManager = new nsGmx.PermalinkManager({
+            provider: mapsResourceServer
+        })
+
+        var permalinkId = uri.getQueryParamValue('permalink')
+        if (permalinkId) {
+            permalinkManager.loadFromId(permalinkId).then(function(data) {
+                pm.loadFromData(data)
+                cb(data)
+            }, function() {
+                cb(null)
+            })
+        } else {
+            return null
+        }
+    })
+
     cm.define('mltGroupDescription', ['layersTree'], function (cm) {
         const layersTree = cm.get('layersTree')
         const mltGroupNode = layersTree.find('GxMKgtMviEPv92yl')
@@ -74,5 +102,19 @@ module.exports = function(cm) {
         var t = new L.Control.gmxAgroTimeline()
         map.addControl(t)
         return t.manager
+    })
+
+    cm.define('shareControl', ['permalinkManager', 'map'], function (cm) {
+        var permalinkManager = cm.get('permalinkManager')
+        var map = cm.get('map')
+
+        var shareControl = new ShareControl({
+            position: 'topleft',
+            permalinkManager
+        });
+
+        map.addControl(shareControl);
+
+        return shareControl
     })
 }

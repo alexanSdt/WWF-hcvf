@@ -2,6 +2,8 @@ require('./styles.css')
 
 window.Promise = window.Promise || require('es6-promise')
 
+require('../external/GMXCommonComponents/PermalinkManager/PermalinkManager.js')
+
 // переопределяем nsGmx.IconSidebarControl external-сайдбаром из ветки v2
 require('../external/IconSidebarControl/dist/iconSidebarControl.js')
 require('../external/IconSidebarControl/dist/iconSidebarControl.css')
