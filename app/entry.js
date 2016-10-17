@@ -14,7 +14,7 @@ require('../external/winnie-core/dist/gmxApplication.js')
 require('../external/winnie-core/dist/gmxApplication.css')
 
 $(document).ready(function (je) {
-    $.ajax('./app/config.json').then(function (resp) {
+    $.ajax('./resources/config.json').then(function (resp) {
         var cm = window.cm = nsGmx.createGmxApplication($('body')[0], resp);
 
         require('./runtime.js')(cm)
