@@ -15,8 +15,10 @@
   margin: 20px auto;
 }
 
-.shareControl {
-    position: absolute;
-    left: 464px;
-    top: -2px;
+.leaflet-top.leaflet-left {
+    display: flex;
+}
+
+.searchBarContainerControl {
+    width: 40%;
 }

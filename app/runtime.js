@@ -1,7 +1,6 @@
 require('./magnific-popup/dist/jquery.magnific-popup.js')
 require('./magnific-popup/dist/magnific-popup.css')
 
-const HeaderContainerControl = require('./HeaderContainerControl')
 const SearchControl = require('./SearchControl')
 const ShareControl = require('./ShareControl')
 const Uri = require('jsuri')
@@ -79,12 +78,11 @@ module.exports = function(cm) {
     })
 
     cm.define('searchBarContainer', ['map'], function (cm) {
-        var map = cm.get('map')
-        var headerContainerControl = new HeaderContainerControl()
-        headerContainerControl.addTo(map)
-        $(headerContainerControl._container).removeClass('leaflet-control')
-        //$('.leaflet-control-zoom').css({ 'margin-top': '50px', 'margin-left': '15px' })
-        return headerContainerControl.getSearchBarContainer()
+        return new (L.Control.extend({
+            onAdd() { return this._container = L.DomUtil.create('div', 'searchBarContainerControl') }
+        }))({
+            position: 'topleft'
+        }).addTo(cm.get('map')).getContainer()
     })
 
     cm.define('searchBarWidget', ['searchBarContainer'], function (cm) {
