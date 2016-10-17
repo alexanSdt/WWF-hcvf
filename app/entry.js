@@ -28,6 +28,10 @@ L.Marker = L.Marker.extend({
     }
 })
 
+if (!Array.prototype.find) {
+  Array.prototype.find = require('./array-find.js')
+ }
+
 $(document).ready(function (je) {
     $.ajax('./resources/config.json').then(function (resp) {
         var cm = window.cm = nsGmx.createGmxApplication($('body')[0], resp)
