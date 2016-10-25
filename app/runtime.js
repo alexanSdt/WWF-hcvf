@@ -19,6 +19,17 @@ function ensureProperty(o, p) {
     return o
 }
 
+function createCustomContainer(map, arPos=[], cls='') {
+    const posClassName = arPos.reduce((acc, curr) => `${acc} leaflet-${curr}`, '')
+    const customPosName = arPos.join('-') + '-' + L.stamp({})
+    const controlCornerEl = L.DomUtil.create('div', posClassName, map._controlContainer)
+    cls && L.DomUtil.addClass(controlCornerEl, cls)
+    L.DomEvent.disableClickPropagation(controlCornerEl)
+    L.DomEvent.disableScrollPropagation(controlCornerEl)
+    map._controlCorners[customPosName] = controlCornerEl
+    return customPosName
+}
+
 module.exports = function(cm) {
     cm.define('uri', [], function (cm) {
         return new Uri(window.location.href)
@@ -79,10 +90,18 @@ module.exports = function(cm) {
 
     cm.define('searchBarContainer', ['map'], function (cm) {
         return new (L.Control.extend({
-            onAdd() { return this._container = L.DomUtil.create('div', 'searchBarContainerControl') }
+            onAdd() {
+                const container = L.DomUtil.create('div', 'searchBarContainerControl')
+                this._searchBarContainer = L.DomUtil.create('div', 'searchBarContainerControl-searchBarContainer', container)
+                return this._container = container
+            },
+
+            getSearchBarContainer() {
+                return this._searchBarContainer
+            }
         }))({
-            position: 'topleft'
-        }).addTo(cm.get('map')).getContainer()
+            position: createCustomContainer(cm.get('map'), ['top', 'left', 'right'], 'searchBarContainer')
+        }).addTo(cm.get('map')).getSearchBarContainer()
     })
 
     cm.define('searchBarWidget', ['searchBarContainer'], function (cm) {

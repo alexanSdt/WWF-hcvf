@@ -20,5 +20,13 @@
 }
 
 .searchBarContainerControl {
-    width: 40%;
+    width: 100%;
+    pointer-events: none;
+    display: flex;
+    justify-content: center;
+}
+
+.searchBarContainerControl-searchBarContainer {
+    width: 50%;
+    pointer-events: all;
 }
