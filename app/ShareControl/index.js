@@ -1,5 +1,7 @@
 require('./styles.styl')
 
+const svgIcon = require('./icon.html')
+
 module.exports = L.Control.extend({
     // options.permalinkManager
     initialize(options) {
@@ -21,7 +23,7 @@ module.exports = L.Control.extend({
     _render() {
         this._container.innerHTML = ''
         this._buttonEl = L.DomUtil.create('div', 'shareControl-button mapControlElement', this._container)
-        this._buttonEl.innerHTML = 'share'
+        this._buttonEl.innerHTML = svgIcon
         this._permalinkEl = L.DomUtil.create('div', 'shareControl-permalink mapControlElement', this._container)
 
         L.DomEvent.on(this._buttonEl, 'click', () => {
